@@ -4,12 +4,15 @@ var model = {
         
     data : [],
     id: 0,
+    date: 0,
     
     'addNotes': function(currItem){
      model.id = model.id + 1;
+    var currDate = new Date();
      var newObj = {
          notesValue: currItem,
-         id: model.id
+         id: model.id,
+         date: currDate
          
      };
      model.data.push(newObj);
@@ -62,8 +65,9 @@ var view = {
 
             var getAllCurrentNotes = model.getAllNotes();
             var displayList = '';
+            console.log(getAllCurrentNotes)
             for(var i=0; i < getAllCurrentNotes.length; i++){
-                displayList += '<li id = '+getAllCurrentNotes[i].id +'>' +getAllCurrentNotes[i].notesValue +'</li>';
+                displayList += '<li id = '+getAllCurrentNotes[i].id +'>' +getAllCurrentNotes[i].notesValue +' '+ getAllCurrentNotes[i].date+'</li>';
             }
             $('#appendItem').html('');
             console.log(displayList);
