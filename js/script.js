@@ -87,13 +87,16 @@ var view = {
 
 
 var controller = {
+    'initialize':function(){
+        view.init();
+    }
     
     
 };
 
 
+controller.initialize();
 
 
-view.init();
 
 
